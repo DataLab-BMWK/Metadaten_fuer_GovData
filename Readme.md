@@ -21,9 +21,9 @@ Für die Metadatensätze des BMWK müssen folgende Metadaten von der veröffentl
 ### Übergabe der Metadaten via Pull Request
 
 1. Das Repository Metadaten_fuer_GovData forken.
-2. Der Inhalt der Datei [`Beispieldatensatz_GovData.ttl`](Datensaetze/Beispieldatensatz_GovData.ttl) kopieren. Hierfür Stiftsymbol anklicken und den gesamten Inhalt der Datei mit Strg+C oder Cmd+C kopieren.
+2. Den Inhalt der Datei [`Beispieldatensatz_GovData.ttl`](Datensaetze/Beispieldatensatz_GovData.ttl) kopieren. Hierfür Stiftsymbol anklicken und den gesamten Inhalt der Datei mit Strg+C oder Cmd+C kopieren.
 3. Auf "Add file" > "Create new file" klicken und den kopierten Inhalt in das Textfeld mit Strg+V oder Cmd+V einfügen.
-4. Einen neuen Namen für die Datei einfügen.
+4. Einen neuen Namen für die Datei eingeben.
 5. Metadaten für die veröffentlichten Daten anpassen.
 6. Änderungen committen: Eine Commit-Nachricht eingeben und auf "Commit new file" klicken.
 
