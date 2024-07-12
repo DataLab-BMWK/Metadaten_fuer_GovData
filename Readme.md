@@ -5,7 +5,7 @@
 
 ## Einleitung
 
-Das Repository stellt einen beispielhaften Metadatensatz im TTL-Format für den Import von Metadaten des BMWK in [GovData.de](https://GovData.de) bereit. Nach der Veröffentlichung von Daten in einem Datenrepositorium kann der Beispieldatensatz [`Beispieldatensatz_GovData.ttl`](Datensaetze/Beispieldatensatz_GovData.ttl) ausgefüllt werden und über einen Pull-Request ins Repository aufgenommen werden.
+Das Repository stellt einen beispielhaften Metadatensatz im TTL-Format für den Import von Metadaten des BMWK in [GovData.de](https://GovData.de) bereit. Nach der Veröffentlichung von Daten in einem Datenrepositorium kann der Beispieldatensatz [`Beispieldatensatz_GovData.ttl`](Datensaetze/Beispieldatensatz_GovData.ttl) ausgefüllt werden und über einen Pull Request ins Repository aufgenommen werden.
 
 Die einzelnen Metadaten werden in der [`Bundesministerium_fuer_Wirtschaft_und_Klimaschutz_DCAT-AP.ttl`](Bundesministerium_fuer_Wirtschaft_und_Klimaschutz_DCAT-AP.ttl) zusammengeführt und an GovData übergeben. 
 
