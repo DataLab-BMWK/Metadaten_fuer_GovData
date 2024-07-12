@@ -9,7 +9,6 @@ Das Repository stellt einen beispielhaften Metadatensatz im TTL-Format für den 
 
 Die einzelnen Metadaten werden in der [`Bundesministerium_fuer_Wirtschaft_und_Klimaschutz_DCAT-AP.ttl`](Bundesministerium_fuer_Wirtschaft_und_Klimaschutz_DCAT-AP.ttl) zusammengeführt und an GovData übergeben. 
 
-Der ausgefüllte Metadatensatz kann auch als TTL- oder TXT-Datei an opendata@bmwk.bund.de gesendet werden.
 
 DCAT-AP.de ist die deutsche Adaption des „Data Catalogue Application Profile“ [(DCAT-AP)](https://github.com/SEMICeu/DCAT-AP) für Datenportale in Europa[[1]](https://github.com/GovDataOfficial/DCAT-AP.de).
 
@@ -17,4 +16,17 @@ Eine ausführliche Dokumentation des Metadatenstandards DACT-AP.de ist unter [ww
 
 Für die Metadatensätze des BMWK müssen folgende Metadaten von der veröffentlichenden Stelle bereitgestellt werden: [Hier noch ein Tabelle der anzugebenden Attribute einfügen?]
 
+## Anleitung
 
+### Übergabe der Metadaten via E-Mail Pull Request
+
+1. Das Repository Metadaten_fuer_GovData forken.
+2. Der Inhalt der Datei [`Beispieldatensatz_GovData.ttl`](Datensaetze/Beispieldatensatz_GovData.ttl) kopieren. Hierfür Stiftsymbol anklicken und den gesamten Inhalt der Datei mit Strg+C oder Cmd+C kopieren.
+3. Auf "Add file" > "Create new file" klicken und den kopierten Inhalt in das Textfeld mit Strg+V oder Cmd+V einfügen.
+4. Einen neuen Namen für die Datei einfügen.
+5. Metadaten für die veröffentlichten Daten anpassen.
+6. Änderungen committen: Eine Commit-Nachricht eingeben und auf "Commit new file" klicken.
+
+### Übergabe der Metadaten via E-Mail
+
+Der ausgefüllte Metadatensatz kann auch als TTL- oder TXT-Datei an opendata@bmwk.bund.de gesendet werden.
