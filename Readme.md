@@ -29,4 +29,4 @@ Für die Metadatensätze des BMWK müssen folgende Metadaten von der veröffentl
 
 ### Übergabe der Metadaten via E-Mail
 
-Der ausgefüllte Metadatensatz kann auch als TTL- oder TXT-Datei an opendata@bmwk.bund.de gesendet werden.
+Die Datei [`Beispieldatensatz_GovData.ttl`](Datensaetze/Beispieldatensatz_GovData.ttl) kann auch lokal heruntergeladen und bearbeitet werden. Den bearbeiteten Metadatensatz anschließend als TTL- oder TXT-Datei an opendata@bmwk.bund.de senden.
