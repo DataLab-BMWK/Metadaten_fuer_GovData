@@ -1,4 +1,4 @@
-# Test 3
+# Beispiel .ttl für den Import in Govdata
 
 # Mit der Beispieldatei können Metadaten für offene Daten des Bundesministeriums für Wirtschaft und Klimaschutz (BMWK) erstellt werden.
 # Die Metadaten werden im Metadatenmodell DCAT-AP.de (https://www.dcat-ap.de/) erstellt.
@@ -14,80 +14,92 @@
 @prefix schema: <http://schema.org/> .
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-# Ende Abschnitt @prefix
 
-# Diesen Abschnitt nicht verändern
-<https://zenodo.org/record/14> a dcat:Dataset ;
+
+# In diesem Abschnitt muss $Eine_eineideuteige_ID_des_Datensatzes gesetzt werden. Diese kann durch die Ersteller selbst gewählt werden.
+## Wichtig ist das die ID unique ist. Es empfiehlt sich die DOI des Datensatzes als ID zu verwenden.
+<Eine_eineideuteige_ID_des_Datensatzes> a dcat:Dataset ;
 dcatde:contributorID <http://dcat-ap.de/def/contributors/bundesministeriumFuerWirtschaftUndKlimaschutz> ;
-dcatde:maintainer [ a foaf:Agent ; foaf:mbox "opendata@bmwk.bund.de" ; foaf:name "Bundesministerium für Wirtschaft und Klimaschutz"] ;
-dcatde:contributor [ a foaf:Organization; foaf:name "Open-Data-Koordiantion des BMWK" ];
+dcatde:maintainer [ a foaf:Agent ; foaf:mbox "opendata@bmwk.bund.de" ; foaf:name "Open-Data-Koordiantion des BMWK"] ;
 
-dcat:theme    <http://publications.europa.eu/resource/authority/data-theme/GOVE> ;
-# Ende des Abschnitts
+# Autor:innen des Datensatz sind unter contributor aufzulisten
+## Sowohl Organisationen als auch Personen sind als Autor:innen zuläsig. Es können Accounts wie ORCIDs oder GRID verlinkt werden
+dcatde:contributor [ a foaf:Organization; foaf:name "Forschungsinstitut Wissenschaft" ], 
+		   [ a foaf:Person; foaf:name "Vorname Nachname"; foaf:account <http://orcid.org/xxxx-xxxx-xxxx-xxxx>; ];
+
+# Unter Theme sind die möglichen Themenfelder des Datensatzes nach https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource
+dcat:theme    <http://publications.europa.eu/resource/authority/data-theme/GOVE>, 
+   	      <http://publications.europa.eu/resource/authority/data-theme/ECON>;
 
 # Titel des Datensatzes
 dct:title "Template Datensatz" ;
 
-# Beschreibung des Datensatzes als Freitext
-# Folgende Fragen sollten in der Beschreibung adressiert werden:
-# 1. Zu welchem Zweck wurden die Daten erhoben/erstellt?
-# 2. Wie wurden die Daten erhoben/erstellt?
-# 3. Mit welchen Werkzeugen und Methoden wurden die Daten erhoben/erstellt? Bei der Verwendung von Umfragesoftware sollte der Name und die Version der Software aufgeführt werden.
-# 4. Welche Dateien gehören zu der Open-Data-Veröffentlichung? Hier sollten die einzelnen Dateien aufgelistet und ihr Inhalt und ihre Struktur beschrieben werden. Die Definition der einzelnen Spalten kann hier erfolgen oder es wird auf erläuternde Dokumente/Dateien (z.B. Codebooks) verwiesen.
-# 5. Wie wurden die Daten vor der Veröffentlichung bearbeitet? Welche Daten wurden entfernt, anonymisiert, gefiltert, generalisiert etc.?
-# 6. Gibt es weitere Informationen zu den Daten? Falls ja, wo sind diese veröffentlicht? 
-# 7. Sind Publikationen, Studien, Analysen aus den Daten entstanden? Falls ja, wo sind diese veröffentlicht?
-dct:description "lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum <a href=\"http://rki.de\">lorem ipsum</a>.<br>- lorem ipsum<br>- lorem ipsumlorem ipsum" ;
+# Kurze Beschreibung des Datensatzes in Form eines Abstracts der Datensatzdokumentation
+dct:description "Der Datensatz wurde erstellt, um umfassende Einblicke in ein spezifisches Untersuchungsgebiet zu gewinnen. Die Daten wurden mittels einer Kombination aus Umfragen und Beobachtungen erhoben, unter Einsatz von spezialisierten Software-Tools und Erhebungsmethoden. Die Veröffentlichung umfasst mehrere Dateien, darunter Rohdaten, demographische Informationen und erläuternde Dokumente. Vor der Veröffentlichung wurden die Daten anonymisiert, bereinigt und gefiltert, um die Qualität und Datenschutzanforderungen zu gewährleisten. Zusätzliche Informationen sowie resultierende Studien und Publikationen sind auf einer zugehörigen Projektwebsite verfügbar." ;
                   
-# Veröffentlichungsdatum der Daten
+# Veröffentlichungsdatum der Daten 
 dct:issued "2024-07-01"^^xsd:date ;
- # Letzte Änderung der Daten
-dct:modified "2024-07-01"^^xsd:date ;
-# Veröffentlichende Stelle der Daten
-dct:publisher [ a foaf:Organization ;
-# E-Mail-Adresse der veröffentlichenden Stelle              
-foaf:mbox "email@email.de" ;
-# Name der veröffentlichenden Stelle
-foaf:name "Name der veröffentlichenden Stelle"
-                  ] ;
+
+# Letzte Änderung der Daten 
+dct:modified "2024-07-02"^^xsd:date ;
+
+# Veröffentlichende Stelle der Daten.
+## In der Regel das Bundesministerium für Wirtschaft und Klimaschutz als Rechtinhaber
+dct:publisher [ a foaf:Organization;         
+foaf:mbox "opendata@bmwk.bund.de" ;
+foaf:name "Bundesministerium für Wirtschaft und Klimaschutz" ] ;
 
 # Verweis auf eine Webseite, die Zugriff auf den Datensatz, seine Distributionen und/oder weitere Informationen ermöglicht.
 dcat:landingPage <https://www.landing-page.io/> ;
 
-# 5-10 Stichwörter zur Beschreibung des Datensatzes.
-dcat:keyword "Stichwort 1","Stichwort 2", "Stichwort 3" .
+# Stichwörter zur Beschreibung des Datensatzes.
+## Die Verwendung standartisierter Ontologien und Klassifikationen wird empfohlen.
+## Jeh mehr Stichwörter, desto besser. Standardmäßgig sind die Stichwörter "BMWK", "Deutschland" und "Open Data" enhalten.
+dcat:keyword "Stichwort 1","Stichwort 2", "Stichwort 3", [...], "Deutschland", "Open Data", "BMWK";
 
 
-                  # Beschreibung der einzelnen Dateien 
-		  # Diesen Abschnitt für jede veröffentlichte Datei wiederholen
+                  # Beschreibung der einzelnen bereitgestelltebn Dateien 
+		  ## Diesen Abschnitt für jede veröffentlichte Datei des Datensatzes bereitzustellen
+		  ## Einzelne Dateien werden als "Distirbution" bezeichnet. Die Idee dahinter ist, dass die gleichen Daten in unterschiedlichen Formaten (Distirbutionen) bereitgestellt werden. Generischer betrachte kann ein Datensatz aber auch mehrere Dateinen mit unterschiedlichen Inhalten enthalten.
                   dcat:distribution [
                     a dcat:Distribution ;
                     
-		    # Geplante Verfügbarkeit des Datensatzes. Liste der Verfügbarkeitsgrade: https://www.dcat-ap.de/def/plannedAvailability/
+		    # Geplante Verfügbarkeit der Datei/ des Datensatzes. Liste der Verfügbarkeitsgrade: https://www.dcat-ap.de/def/plannedAvailability/
                     dcatde:plannedAvailability <http://dcat-ap.de/def/plannedAvailability/stable> ;
                     
 		    # Beschreibung der Datei als Freitext
-                    dct:description "GitHub ist eine soziales Netzwerk und Plattform, die es ermöglicht, Code-Repositories und Datensätze zu hosten, zu verwalten und zu teilen. Es bietet eine Vielzahl von Funktionen wie Versionskontrolle, Fehlerverfolgung, Zusammenarbeit und Teammanagement. GitHub ist eine der bekanntesten und am häufigsten verwendeten Plattformen für die gemeinsame Entwicklung von Software und Code, insbesondere für Open-Source-Projekte.";
+                    dct:description "Die Datei "Datensatz.csv" enthält eine Sammlung strukturierter Daten, die im Rahmen einer spezifischen Erhebung erstellt wurden. Die Daten wurden durch standardisierte Verfahren und Erhebungsmethoden gesammelt und sorgfältig aufbereitet. Weitere Informationen zum Inhalt und Strulktur der Datei ist in der Datensatzdokumentation enthalten";
                     
 		    # Sprache der Datei
                     dct:language <http://publications.europa.eu/resource/authority/language/DEU> ;
 		    
-                     # Lizenz, unter der die Daten veröffentlicht sind. Liste der Lizenzen: https://www.dcat-ap.de/def/licenses/
+                    # Lizenz, unter der die Daten veröffentlicht sind. Liste der Lizenzen: https://www.dcat-ap.de/def/licenses/
+		    ## Es wird standardmäßig die CC-BY-4.0 Lizens vergeben. Liste der Lizenzen: https://www.dcat-ap.de/def/licenses/
                     dct:license <http://dcat-ap.de/def/licenses/cc-by/4.0> ;
 		    
-		    # Namensnennungstext bei Lizenzangaben
-		    dcatde:licenseAttributionByText "Bundesministerium für Wirtschaft und Klimaschutz (2023): Template Datensatz, Berlin: Zenodo. DOI:10.5072/zenodo.829" ;
+		    # Namensnennungstext bei Lizenzangaben 
+		    ## Ergibt sich aus: dcatde:contributor, dct:modified dct:title, dct:publisher und der DOI des Datensatzes
+		    ## Ist für alle Dateien des Datensatzes gleich
+		    dcatde:licenseAttributionByText "Forschungsinstitut Wissenschaft, Nachname Vorname (2024): Template Datensatz, BMWK. DOI: xxxxxx/xxxxxxx" ;
 		    
-                    # Titel der Datei
-                    dct:title "Datei XY" ;
+                    # Name der Datei
+                    dct:title "Datei_1.tsv" ;
 		    
-		    # URL-Adresse, die Zugriff auf die Distribution eines Datensatzes ermöglicht.
-		    # Die mit der Zugangs-URL erreichbare Ressource kann Informationen zur Verfügung stellen, wie die Distribution erreicht werden kann oder direkt auf eine Datei verweisen, die die Daten im angegebenen Format beinhaltet.
-                    dcat:accessURL <https://github.com/DataLab-BMWK/Template_Datensatz>;
-                    
+		    # URL-Adresse, die Zugriff auf die entprechende Distribution/Datei des Datensatzes ermöglicht.
+		    ## Die mit der Zugangs-URL erreichbare Ressource kann Informationen zur Verfügung stellen, wie die Distribution erreicht werden kann oder direkt auf eine Datei verweisen, die die Daten im angegebenen Format beinhaltet. (Hier am Beispiel Zenodo)
+                    dcat:accessURL <https://zenodo.org/records/Eine_eineideuteige_ID_des_Datensatzes/files/Datei_1.tsv>;
+
 		    dct:modified "2024-07-01T15:00:00+02:00"^^xsd:dateTime;
                   ],
-		# Wiederholung für eine weitere Datei
+		# Wiederholung für die Datensatzdokumentation
+		# Folgende Fragen sollten in der Beschreibung adressiert werden:
+		# 1. Zu welchem Zweck wurden die Daten erhoben/erstellt?
+		# 2. Wie wurden die Daten erhoben/erstellt?
+		# 3. Mit welchen Werkzeugen und Methoden wurden die Daten erhoben/erstellt? Bei der Verwendung von Umfragesoftware sollte der Name und die Version der Software aufgeführt werden.
+		# 4. Welche Dateien gehören zu der Open-Data-Veröffentlichung? Hier sollten die einzelnen Dateien aufgelistet und ihr Inhalt und ihre Struktur beschrieben werden. Die Definition der einzelnen Spalten kann hier erfolgen oder es wird auf erläuternde Dokumente/Dateien (z.B. 	Codebooks) verwiesen.
+		# 5. Wie wurden die Daten vor der Veröffentlichung bearbeitet? Welche Daten wurden entfernt, anonymisiert, gefiltert, generalisiert etc.?
+		# 6. Gibt es weitere Informationen zu den Daten? Falls ja, wo sind diese veröffentlicht? 
+		# 7. Sind Publikationen, Studien, Analysen aus den Daten entstanden? Falls ja, wo sind diese veröffentlicht?
                   [
                   a dcat:Distribution ;
                     
@@ -95,23 +107,26 @@ dcat:keyword "Stichwort 1","Stichwort 2", "Stichwort 3" .
                     dcatde:plannedAvailability <http://dcat-ap.de/def/plannedAvailability/stable> ;
                     
 		    # Beschreibung der Datei als Freitext
-                    dct:description "GitHub ist eine soziales Netzwerk und Plattform, die es ermöglicht, Code-Repositories und Datensätze zu hosten, zu verwalten und zu teilen. Es bietet eine Vielzahl von Funktionen wie Versionskontrolle, Fehlerverfolgung, Zusammenarbeit und Teammanagement. GitHub ist eine der bekanntesten und am häufigsten verwendeten Plattformen für die gemeinsame Entwicklung von Software und Code, insbesondere für Open-Source-Projekte.";
+                    dct:description "Die Datensatzdokumentation enthält Informationen und Hinweise zum Entstehungskontext, der Datenerhebung, Datenverarbeitung, dem Aufbau und der Nachnutzung der im Datensatz bereitgestellten Daten";
                     
 		    # Sprache der Datei
                     dct:language <http://publications.europa.eu/resource/authority/language/DEU> ;
 		    
-                     # Lizenz, unter der die Daten veröffentlicht sind. Liste der Lizenzen: https://www.dcat-ap.de/def/licenses/
+                    # Lizenz, unter der die Daten veröffentlicht sind. Liste der Lizenzen: https://www.dcat-ap.de/def/licenses/
+		    ## Es wird standardmäßig die CC-BY-4.0 Lizens vergeben. Liste der Lizenzen: https://www.dcat-ap.de/def/licenses//
                     dct:license <http://dcat-ap.de/def/licenses/cc-by/4.0> ;
 		    
 		    # Namensnennungstext bei Lizenzangaben
-		    dcatde:licenseAttributionByText "Bundesministerium für Wirtschaft und Klimaschutz (2023): Template Datensatz, Berlin: Zenodo. DOI:10.5072/zenodo.829" ;
+		    ## Ergibt sich aus: dcatde:contributor, dct:modified dct:title, dct:publisher und der DOI des Datensatzes
+		    dcatde:licenseAttributionByText "Forschungsinstitut Wissenschaft, Nachname Vorname (2024): Template Datensatz, BMWK. DOI: xxxxxx/xxxxxxx" ;
 		    
                     # Titel der Datei
-                    dct:title "Datei XY" ;
+                    dct:title "Dokumentation_Titel_des_Datensatzes.md/pdf" ;
 		    
 		    # URL-Adresse, die Zugriff auf die Distribution eines Datensatzes ermöglicht.
-		    # Die mit der Zugangs-URL erreichbare Ressource kann Informationen zur Verfügung stellen, wie die Distribution erreicht werden kann oder direkt auf eine Datei verweisen, die die Daten im angegebenen Format beinhaltet.
-                    dcat:accessURL <https://github.com/DataLab-BMWK/Template_Datensatz>;
+		    # URL-Adresse, die Zugriff auf die entprechende Distribution/Datei des Datensatzes ermöglicht.
+		    ## Die mit der Zugangs-URL erreichbare Ressource kann Informationen zur Verfügung stellen, wie die Distribution erreicht werden kann oder direkt auf eine Datei verweisen, die die Daten im angegebenen Format beinhaltet. (Hier am Beispiel Zenodo)
+                    dcat:accessURL <https://zenodo.org/records/Eine_eineideuteige_ID_des_Datensatzes/files/Dokumentation_Titel_des_Datensatzes.md/pdf>;
                     
 		    dct:modified "2024-07-01T15:00:00+02:00"^^xsd:dateTime;
                   ] .
